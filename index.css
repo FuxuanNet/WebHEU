@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  height: 70px;
+  width: 800px;
+  margin: 100px auto 0 auto;
+}
+.parent {
+  position: relative;
+}
+.search {
+  width: 300px;
+  height: 40px;
+  border-radius: 18px;
+  outline: none;
+  border: 1px solid #ccc;
+  padding-left: 20px;
+  position: absolute;
+}
+.btn {
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  background: url("images/topbar.png") no-repeat -2px -99px;
+  top: 6px;
+  left: 285px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+/*上面是搜索框的样式*/
+
+.color {
+  background-color: rgb(0, 255, 234);
+}
+.nav {
+  display: flex;
+
+  align-items: stretch;
+}
+.f1 {
+  flex: 1;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  font-size: 18px;
+  border-style: inset;
+}
