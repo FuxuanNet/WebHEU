@@ -22,13 +22,16 @@
   position: absolute;
 }
 .btn {
+  display: block;
   position: absolute;
   z-index: 9999999;
   border-radius: 50%;
   height: 35px;
   width: 35px;
   position: absolute;
-  background: url("images/topbar.png") no-repeat -2px -99px;
+  background: url("images/topbar.png") no-repeat center;
+  object-fit: scale-down;
+
   top: 6px;
   left: 285px;
   border: none;
