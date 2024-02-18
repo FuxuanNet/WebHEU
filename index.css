@@ -1,7 +1,24 @@
+/*初始化*/
 * {
   margin: 0;
   padding: 0;
+  border: 1px solid #000; /* 边框仅供实验显示，之后会用none取代 */
+  border: none;
 }
+
+/*灰色背景*/
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #eee; /*灰色背景*/
+}
+
+/*白色*/
+.bg_white {
+  background-color: white;
+}
+
+/*以下为搜索框的样式*/
 .container {
   height: 70px;
   width: 800px;
@@ -29,7 +46,7 @@
   height: 35px;
   width: 35px;
   position: absolute;
-  background: url("images/topbar.png") no-repeat center;
+  background: url("images/searchbar.png") no-repeat center;
   object-fit: scale-down;
 
   top: 6px;
@@ -38,11 +55,14 @@
   outline: none;
   cursor: pointer;
 }
-/*上面是搜索框的样式*/
 
-.color {
+/*头部背景*/
+.bg_blue {
   background-color: rgb(0, 255, 234);
+  background-image: url("images/topbar.jpg");
 }
+
+/*以下为导航栏的样式*/
 .nav {
   display: flex;
 
@@ -53,6 +73,31 @@
   height: 70px;
   line-height: 70px;
   text-align: center;
-  font-size: 18px;
-  border-style: inset;
+  font-size: 20px;
+}
+.leftbd {
+  border-right: 1px solid #ccc;
+}
+.rightbd {
+  border-left: 1px solid #ccc;
+}
+a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(111, 111, 234);
+  background-color: rgb(255, 255, 255);
+  border-bottom: 5px solid rgb(111, 111, 234);
+}
+a.active {
+  color: rgb(111, 111, 234);
+  background-color: rgb(255, 255, 255);
+  border-bottom: 5px solid rgb(111, 111, 234);
+}
+.opened {
+  color: rgb(111, 111, 234);
+  background-color: rgb(255, 255, 255);
+  border-bottom: 5px solid rgb(111, 111, 234);
 }
