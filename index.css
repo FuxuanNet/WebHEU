@@ -121,6 +121,9 @@ a.active {
   box-sizing: border-box;
 }
 .box {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.6s linear;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,10 +133,10 @@ a.active {
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   box-shadow: 00 5px #eee;
-  display: none;
 }
 .content:hover .box {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
 }
 
 /*去除滚动条*/
