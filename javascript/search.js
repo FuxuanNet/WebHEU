@@ -1,8 +1,10 @@
+
 //添加一个监视器,当点击提交时将搜索词发送至后台
 document.getElementById('searchForm').addEventListener('submit', function(event) {
     event.preventDefault(); // 阻止表单默认提交行为
     var searchTerm = document.getElementById('searchInput').value;
-    //提交数据到本地后台
+    //提交数据到本地后台(数据不为空)
+    if (searchTerm) {
     fetch('http://127.0.0.1:8000/search', {
         method: 'POST',
         headers: {
@@ -20,9 +22,10 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
             // 示例：显示搜索结果
             console.log(data);
             var searchResultsElement = document.getElementById('searchResults');
-            searchResultsElement.innerHTML = "<p>搜索结果：" + searchTerm + "</p>";
+            searchResultsElement.innerHTML = "<p>Result:" + searchTerm + "</p>";
         })
         .catch(error => {
             console.error('There was an error:', error);
         });
+    }
 });
