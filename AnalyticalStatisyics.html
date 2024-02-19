@@ -7,13 +7,13 @@
     <title>基础教育国家级优秀教学成果资源服务平台数据分析</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
-    <script src="index.js"></script>
+    <script src="javascript/echarts.js"></script>
   </head>
   <body>
     <div class="bg_blue">
       <!--标题栏-->
       <h1 style="color: rgb(0, 255, 234)">.</h1>
-      <h1 style="color: rgb(111, 111, 234)" ; align="center" ;>
+      <h1 style="color: rgb(111, 111, 234); text-align: center">
         基础教育国家级优秀教学成果资源服务平台
       </h1>
       <!--搜索框-->
@@ -33,6 +33,15 @@
       <div class="f1 bg_white">
         <a href="UserImage.html">用户画像</a>
       </div>
+    </div>
+    <!--图表展示-->
+    <div class="show-chart">
+      <div id="doughnut-chart"></div>
+      <script src="javascript/doughnut.js"></script>
+      <div id="pie-chart"></div>
+      <script src="javascript/pie.js"></script>
+      <div id="rose-chart"></div>
+      <script src="javascript/rose.js"></script>
     </div>
   </body>
 </html>

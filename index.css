@@ -32,11 +32,11 @@ body {
   z-index: 1;
   width: 300px;
   height: 40px;
+  font-size: 20px;
   border-radius: 18px;
   outline: none;
   border: 1px solid #ccc;
   padding-left: 20px;
-  position: absolute;
 }
 .btn {
   display: block;
@@ -45,7 +45,6 @@ body {
   border-radius: 50%;
   height: 35px;
   width: 35px;
-  position: absolute;
   background: url("images/searchbar.png") no-repeat center;
   object-fit: scale-down;
 
@@ -100,4 +99,17 @@ a.active {
   color: rgb(111, 111, 234);
   background-color: rgb(255, 255, 255);
   border-bottom: 5px solid rgb(111, 111, 234);
+}
+/*调整图表样式,可以修改*/
+.show-chart{
+  flex: 1 1 auto;
+  width: 1600px;
+  height: 600px;
+}
+#doughnut-chart,#pie-chart,#rose-chart {
+  height: 300px;
+  width: 500px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-bottom: 20px;
 }

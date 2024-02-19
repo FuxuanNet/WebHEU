@@ -1,16 +1,16 @@
 
-//Ìí¼ÓÒ»¸ö¼àÊÓÆ÷,µ±µã»÷Ìá½»Ê±½«ËÑË÷´Ê·¢ËÍÖÁºóÌ¨
+//æ·»åŠ ä¸€ä¸ªç›‘è§†å™¨,å½“ç‚¹å‡»æäº¤æ—¶å°†æœç´¢è¯å‘é€è‡³åå°
 document.getElementById('searchForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // ×èÖ¹±íµ¥Ä¬ÈÏÌá½»ĞĞÎª
-    var searchTerm = document.getElementById('searchInput').value;
-    //Ìá½»Êı¾İµ½±¾µØºóÌ¨(Êı¾İ²»Îª¿Õ)
+    event.preventDefault(); // é˜»æ­¢è¡¨å•é»˜è®¤æäº¤è¡Œä¸º
+    var searchTerm = document.getElementById('searchInput').value.trim(); //å»é™¤ä¸¤ç«¯ç©ºæ ¼
+    //æäº¤æ•°æ®åˆ°æœ¬åœ°åå°(æ•°æ®ä¸ä¸ºç©º)
     if (searchTerm) {
     fetch('http://127.0.0.1:8000/search', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json' // Ö¸¶¨ÇëÇóÍ·ÖĞµÄ Content-Type
+            'Content-Type': 'application/json' // æŒ‡å®šè¯·æ±‚å¤´ä¸­çš„ Content-Type
         },
-        body: JSON.stringify({ "keyword": searchTerm }) // ÉèÖÃÇëÇóÌå£¬ĞèÒª½«Êı¾İ×ª»»Îª JSON ×Ö·û´®
+        body: JSON.stringify({ "keyword": searchTerm }) // è®¾ç½®è¯·æ±‚ä½“ï¼Œéœ€è¦å°†æ•°æ®è½¬æ¢ä¸º JSON å­—ç¬¦ä¸²
     })
         .then(response => {
         if (!response.ok) {
@@ -19,7 +19,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
         return response.json();
         })
         .then(data => {
-            // Ê¾Àı£ºÏÔÊ¾ËÑË÷½á¹û
+            // ç¤ºä¾‹ï¼šæ˜¾ç¤ºæœç´¢ç»“æœ
             console.log(data);
             var searchResultsElement = document.getElementById('searchResults');
             searchResultsElement.innerHTML = "<p>Result:" + searchTerm + "</p>";
