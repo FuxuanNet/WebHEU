@@ -100,6 +100,52 @@ a.active {
   background-color: rgb(255, 255, 255);
   border-bottom: 5px solid rgb(111, 111, 234);
 }
+/*内容板块*/
+.content {
+  overflow: auto;
+  margin: 6px auto;
+  height: 600px;
+  background-color: rgb(255, 255, 255);
+  z-index: -1; /*设置该标签等级，让其始终位于最上层*/
+  -webkit-filter: opacity(70%); /*设置透明度   blur还可以改变照片的模糊度*/
+  filter: opacity(70%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.box {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.6s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  margin: 25px auto;
+  height: 200px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 0 5px #eee;
+}
+.content:hover .box {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*去除滚动条*/
+div::-webkit-scrollbar {
+  display: none;
+}
+
+.tail {
+  background-color: #05468c;
+  height: 100px;
+}
 /*调整图表样式,可以修改*/
 .show-chart{
   flex: 1 1 auto;

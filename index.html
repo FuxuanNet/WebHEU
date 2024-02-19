@@ -9,21 +9,29 @@
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
   </head>
   <body>
+    <!--头部板块-->
     <div class="bg_blue">
       <!--标题栏-->
       <h1 style="color: rgb(0, 255, 234)">.</h1>
-      <h1 style="color: rgb(111, 111, 234); text-align: center ">
+      <h1 style="color: rgb(111, 111, 234); text-align: center">
         基础教育国家级优秀教学成果资源服务平台
       </h1>
       <!--搜索框-->
       <div class="container">
         <form action="" class="parent" id="searchForm">
-          <input type="text" class="search" id="searchInput" placeholder="搜索" />
+          <input
+            type="text"
+            class="search"
+            id="searchInput"
+            placeholder="搜索"
+          />
           <button type="submit" class="btn"></button>
         </form>
         <!--展示搜索结果,修改此处需同步修改search.js-->
-        <div id="searchResults" style="text-align: right;"></div>
-        <script src="javascript/search.js">//添加一个监视器,当点击提交时将搜索词发送至后台</script>
+        <div id="searchResults" style="text-align: right"></div>
+        <script src="javascript/search.js">
+          //添加一个监视器,当点击提交时将搜索词发送至后台
+        </script>
       </div>
     </div>
     <!--导航栏-->
@@ -37,6 +45,22 @@
       <div class="f1 bg_white">
         <a href="UserImage.html">用户画像</a>
       </div>
+    </div>
+
+    <!--内容板块-->
+    <div class="content" ; style="background-image: url(images/snow.jpg)" ;>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <div class="tail">
+      <img
+        src="images/blueHEU.png"
+        style="text-align: center; margin: 0 auto"
+      />
     </div>
   </body>
 </html>
