@@ -28,19 +28,28 @@ async def ip_limit_middleware(request: Request, call_next):
 
 # 访问127.0.0.1:8000/search进行用户搜索
 # 处理/search下的搜索请求
+split_codes = [33, 34, 35, 39, 44, 45, 46, 58, 59, 61, 63, 12290, 65281, 65292, 30340, 26159, 20026]
+
+
 @app.post("/search")
 async def search_data(data: dict):
-    keyword = data["keyword"]
-    # 这里在数据库中执行搜索,然后返回result
+    keyword: str = data["keyword"]
+    # 根据标点符号以及"的","是","为"进行分割
+    for code in split_codes:
+        if chr(code) in keyword:
+            keyword = keyword.replace(chr(code), " ")
+    # 在数据库中执行搜索,然后返回result
+    words = keyword.strip().split(" ")
+    
     result = {"result": "No related data found."}
     return result
 
 
-#/访问127.0.0.1:8000/lib来获取各种依赖文件或数据
+# /访问127.0.0.1:8000/lib来获取各种依赖文件或数据库
 # 处理/lib下的GET请求
 @app.get("/lib")
 async def read_lib():
-    with open("./data.json", "r", encoding="utf-8") as f:
+    with open("./database.json", "r") as f:
         data = json.load(f)
     return data
 
@@ -48,7 +57,7 @@ async def read_lib():
 # 处理/lib下的POST请求
 @app.post("/lib")
 async def save_lib(data: dict):
-    with open("./data.json", "w", encoding="utf-8") as f:
+    with open("./database.json", "w") as f:
         json.dump(data, f)
     data = {"message": "Data received and saved successfully"}
     return data
