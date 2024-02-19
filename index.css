@@ -18,6 +18,14 @@ body {
   background-color: white;
 }
 
+/*页眉*/
+.header {
+  height: 100px;
+  /*background-color: white;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /*以下为搜索框的样式*/
 .container {
   height: 70px;
@@ -59,6 +67,7 @@ body {
 .bg_blue {
   background-color: rgb(0, 255, 234);
   background-image: url("images/topbar.jpg");
+  opacity: 0.7;
 }
 
 /*以下为导航栏的样式*/
@@ -68,6 +77,7 @@ body {
   align-items: stretch;
 }
 .f1 {
+  /*margin-top: 6px;*/
   flex: 1;
   height: 70px;
   line-height: 70px;
@@ -149,15 +159,31 @@ div::-webkit-scrollbar {
 .tail {
   background-color: #05468c;
   height: 100px;
+  display: flex;
+}
+.righttail {
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  color: white;
+  margin: auto 20px auto auto;
+}
+.righttail a {
+  color: white;
+  text-decoration: none;
+}
+.righttail a:hover {
+  color: #000;
 }
 
 /*调整图表样式,可以修改*/
-.show-chart{
+.show-chart {
   flex: 1 1 auto;
   width: 1600px;
   height: 600px;
 }
-#doughnut-chart,#pie-chart,#rose-chart {
+#doughnut-chart,
+#pie-chart,
+#rose-chart {
   height: 300px;
   width: 500px;
   margin-top: 20px;
@@ -202,5 +228,4 @@ div::-webkit-scrollbar {
   color: white;
   text-decoration: none;
   margin-left: 20px;
-
 }
