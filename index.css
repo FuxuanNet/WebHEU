@@ -81,17 +81,17 @@ body {
 .rightbd {
   border-left: 1px solid #ccc;
 }
-a {
+.an {
   display: block;
   color: #000;
   text-decoration: none;
 }
-a:hover {
+.an:hover {
   color: rgb(111, 111, 234);
   background-color: rgb(255, 255, 255);
   border-bottom: 5px solid rgb(111, 111, 234);
 }
-a.active {
+.an.active {
   color: rgb(111, 111, 234);
   background-color: rgb(255, 255, 255);
   border-bottom: 5px solid rgb(111, 111, 234);
@@ -130,6 +130,7 @@ a.active {
   width: 500px;
   margin: 25px auto;
   height: 200px;
+  background-image: url("images/bg01.png");
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   box-shadow: 00 5px #eee;
@@ -137,6 +138,9 @@ a.active {
 .content:hover .box {
   visibility: visible;
   opacity: 1;
+}
+.box:hover {
+  background-image: url("images/cool-background.png");
 }
 
 /*去除滚动条*/
@@ -147,4 +151,43 @@ div::-webkit-scrollbar {
 .tail {
   background-color: #05468c;
   height: 100px;
+}
+
+/* 内容盒 */
+.inbox {
+  color: gray;
+  text-decoration: none;
+  font-size: 50px;
+}
+.inbox:hover {
+  color: brown;
+  border-bottom: 0px;
+}
+/*上面的不用了，用下面的*/
+.title {
+  text-decoration: none;
+  font-size: 50px;
+  color: transparent;
+  -webkit-text-stroke: 1px black;
+  letter-spacing: 0.04em;
+  border-bottom: 0px;
+}
+.title:hover {
+  -webkit-text-stroke: 1px brown;
+  border-bottom: 0px;
+}
+
+/* 导航栏 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #05468c;
+  color: white;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
 }

@@ -1,31 +1,32 @@
-
-//Ìí¼ÓÒ»¸ö¼àÊÓÆ÷,µ±µã»÷Ìá½»Ê±½«ËÑË÷´Ê·¢ËÍÖÁºóÌ¨
-document.getElementById('searchForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // ×èÖ¹±íµ¥Ä¬ÈÏÌá½»ÐÐÎª
-    var searchTerm = document.getElementById('searchInput').value;
-    //Ìá½»Êý¾Ýµ½±¾µØºóÌ¨(Êý¾Ý²»Îª¿Õ)
+//ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á½»Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨
+document
+  .getElementById("searchForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½ï¿½á½»ï¿½ï¿½Îª
+    var searchTerm = document.getElementById("searchInput").value;
+    //ï¿½á½»ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½Øºï¿½Ì¨(ï¿½ï¿½ï¿½Ý²ï¿½Îªï¿½ï¿½)
     if (searchTerm) {
-    fetch('http://127.0.0.1:8000/search', {
-        method: 'POST',
+      fetch("http://127.0.0.1:8000/search", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json' // Ö¸¶¨ÇëÇóÍ·ÖÐµÄ Content-Type
+          "Content-Type": "application/json", // Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½Ðµï¿½ Content-Type
         },
-        body: JSON.stringify({ "keyword": searchTerm }) // ÉèÖÃÇëÇóÌå£¬ÐèÒª½«Êý¾Ý×ª»»Îª JSON ×Ö·û´®
-    })
-        .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
+        body: JSON.stringify({ keyword: searchTerm }), // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å£¬ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Îª JSON ï¿½Ö·ï¿½ï¿½ï¿½
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
         })
-        .then(data => {
-            // Ê¾Àý£ºÏÔÊ¾ËÑË÷½á¹û
-            console.log(data);
-            var searchResultsElement = document.getElementById('searchResults');
-            searchResultsElement.innerHTML = "<p>Result:" + searchTerm + "</p>";
+        .then((data) => {
+          // Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+          console.log(data);
+          var searchResultsElement = document.getElementById("searchResults");
+          searchResultsElement.innerHTML = "<p>Result:" + searchTerm + "</p>";
         })
-        .catch(error => {
-            console.error('There was an error:', error);
+        .catch((error) => {
+          console.error("There was an error:", error);
         });
     }
-});
+  });
