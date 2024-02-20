@@ -10,29 +10,65 @@
     <script src="index.js"></script>
   </head>
   <body>
+    <!--头部板块-->
     <div class="bg_blue">
+      <!--HEU图片-->
+      <div class="header">
+        <img src="images/HEU.png" />
+      </div>
       <!--标题栏-->
-      <h1 style="color: rgb(0, 255, 234)">.</h1>
-      <h1 style="color: rgb(111, 111, 234)" ; align="center" ;>
+      <h1
+        style="
+          color: #303586;
+          text-align: center;
+          margin-top: 5px;
+          letter-spacing: 0.1em;
+        "
+      >
         基础教育国家级优秀教学成果资源服务平台
       </h1>
       <!--搜索框-->
       <div class="container">
-        <form action="" class="parent">
-          <input type="text" class="search" placeholder="搜索" />
-          <input type="button" name="" id="" class="btn" />
+        <form action="" class="parent" id="searchForm">
+          <input
+            type="text"
+            class="search"
+            id="searchInput"
+            placeholder="搜索"
+          />
+          <button type="submit" class="btn"></button>
         </form>
+        <!--展示搜索结果,修改此处需同步修改search.js-->
+        <div id="searchResults" style="text-align: right"></div>
+        <script src="javascript/search.js">
+          //添加一个监视器,当点击提交时将搜索词发送至后台
+        </script>
       </div>
     </div>
+
     <!--导航栏-->
     <div class="nav">
-      <div class="f1 bg_white"><a href="ResultsShow.html" class="an">成果展示</a></div>
+      <div class="f1 bg_white">
+        <a href="ResultsShow.html" class="an">成果展示</a>
+      </div>
       <div class="f1 bg_white leftbd rightbd">
         <a href="AnalyticalStatisyics.html" class="an">分析统计</a>
       </div>
       <div class="f1 bg_white opened">
         <a href="UserImage.html" class="an">用户画像</a>
       </div>
+    </div>
+
+    <!--内容板块-->
+    <div class="content"></div>
+
+    <!--页脚-->
+    <div class="tail">
+      <img src="images/blueHEU.png" style="text-align: left" />
+      <p class="righttail">
+        <a href="http://www.hrbeu.edu.cn/" target="_blank">哈尔滨工程大学</a> |
+        <a href="index.html">回到首页</a>
+      </p>
     </div>
   </body>
 </html>

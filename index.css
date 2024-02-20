@@ -26,6 +26,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 /*以下为搜索框的样式*/
 .container {
   height: 70px;
@@ -110,6 +111,7 @@ body {
   background-color: rgb(255, 255, 255);
   border-bottom: 5px solid rgb(111, 111, 234);
 }
+
 /*内容板块*/
 .content {
   overflow: auto;
@@ -156,6 +158,7 @@ div::-webkit-scrollbar {
   display: none;
 }
 
+/*页尾*/
 .tail {
   background-color: #05468c;
   height: 100px;
@@ -177,10 +180,15 @@ div::-webkit-scrollbar {
 
 /*调整图表样式,可以修改*/
 .show-chart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   flex: 1 1 auto;
   width: 1600px;
-  height: 600px;
+  height: 700px;
 }
+/* 调整图表大小 */
 #doughnut-chart,
 #pie-chart,
 #rose-chart {
@@ -216,6 +224,11 @@ div::-webkit-scrollbar {
 }
 
 /* 导航栏 */
+/* 
+这个导航栏未被任何标签引用。
+至于我为什么要写出来这个多余的东西，我对此一点印象也没有。
+我怀疑这个可能是 CodeGeeX 插件的代码自动补全生成出来的。
+*/
 .navbar {
   display: flex;
   justify-content: space-between;
