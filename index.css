@@ -115,13 +115,19 @@ body {
 
 /*内容板块*/
 .content {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /*这三行为多列多行布局，删去后改为单列*/
+
   overflow: auto;
   margin: 0px auto;
-  height: 600px;
+  height: 750px;
   background-color: rgb(255, 255, 255);
   z-index: -1; /*设置该标签等级，让其始终位于最上层*/
-  -webkit-filter: opacity(70%); /*设置透明度   blur还可以改变照片的模糊度*/
-  filter: opacity(70%);
+  /*-webkit-filter: opacity(70%); /*设置透明度   blur还可以改变照片的模糊度*/
+  /*filter: opacity(70%);*/
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
@@ -138,7 +144,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 550px;
   margin: 25px auto;
   height: 200px;
   background-image: url("images/bg01.png");
