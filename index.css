@@ -116,7 +116,7 @@ body {
 /*内容板块*/
 .content {
   overflow: auto;
-  margin: 6px auto;
+  margin: 0px auto;
   height: 600px;
   background-color: rgb(255, 255, 255);
   z-index: -1; /*设置该标签等级，让其始终位于最上层*/
@@ -242,4 +242,45 @@ div::-webkit-scrollbar {
   color: white;
   text-decoration: none;
   margin-left: 20px;
+}
+
+/*瀑布流*/
+.waterfall {
+  columns: 4; /* 默认列数*/
+  column-gap: 30px; /* 列间距*/
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.masonry {
+  width: 1440px; /*默认宽度*/
+  margin: 20px auto; /* 剧中*/
+  columns: 4; /*默认列数*/
+  column-gap: 30px; /*列间距*/
+  box-sizing: border-box;
+}
+/* 瀑布流项 */
+.item {
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: 30px;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+    rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+}
+.item img {
+  width: 100%;
+}
+.item h2 {
+  padding: 8px;
+}
+.item p {
+  color: #555;
+  padding: 0px 8px 8px;
 }
