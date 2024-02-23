@@ -445,8 +445,14 @@ div::-webkit-scrollbar {
 .MediaBox img {
   display: flex;
   margin: 20px auto;
+  margin-top: 20px;
+  transition: margin-top 0.5s linear;
+}
+.MediaBox:hover img {
+  margin-top: 10px;
 }
 .MediaBox p {
   text-align: center;
-  color: #000;
+  color: #074f9c;
+  font-weight: bold;
 }
