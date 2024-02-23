@@ -406,5 +406,47 @@ div::-webkit-scrollbar {
   transition: visibility 0s, opacity 0.8s linear;
 }
 .index:hover .poetry {
+  visibility: visible;
   opacity: 1;
+}
+.OtherMedia {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.MediaBox {
+  opacity: 0;
+  transition: visibility 0s, opacity 0.8s linear;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+  background-color: white;
+}
+.index:hover .MediaBox {
+  visibility: visible;
+  opacity: 1;
+}
+.MediaBox a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+.MediaBox img {
+  display: flex;
+  margin: 20px auto;
+}
+.MediaBox p {
+  text-align: center;
+  color: #000;
 }
