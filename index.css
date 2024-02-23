@@ -325,7 +325,6 @@ div::-webkit-scrollbar {
   background-position: center;
 }
 .tri-flex {
-  visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.7s linear;
   width: 100%;
@@ -401,4 +400,11 @@ div::-webkit-scrollbar {
 }
 .atom a:hover {
   color: white;
+}
+.poetry {
+  opacity: 0;
+  transition: visibility 0s, opacity 0.8s linear;
+}
+.index:hover .poetry {
+  opacity: 1;
 }
