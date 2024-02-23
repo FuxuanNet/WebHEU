@@ -145,9 +145,9 @@ body {
   box-sizing: border-box;
 }
 .box {
-  visibility: hidden;
+  /*visibility: hidden; 这一句删掉似乎视觉效果更好? */
   opacity: 0;
-  transition: visibility 0s, opacity 0.6s linear;
+  transition: visibility 0s, opacity 0.3s linear;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -170,6 +170,7 @@ body {
       rgba(255, 255, 255, 0.5)
     ),
     url("images/unBox.svg");
+  transform: scale(1.05); /* 鼠标悬浮时放大到105% */
 }
 
 /*去除滚动条*/
@@ -216,6 +217,11 @@ div::-webkit-scrollbar {
   margin-top: 20px;
   margin-left: 10px;
   margin-bottom: 20px;
+}
+#trend-chart{
+  height: 500px;
+  width: 1500px;
+  margin: 0 auto;
 }
 
 /* 内容盒 */
@@ -294,6 +300,8 @@ div::-webkit-scrollbar {
 }
 .item img {
   width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
 }
 .item h2 {
   padding: 8px;
@@ -302,6 +310,11 @@ div::-webkit-scrollbar {
   color: #555;
   padding: 0px 8px 8px;
 }
+/* 鼠标悬浮时放大栏目 */
+.item:hover{
+  transform: scale(1.1);
+}
+
 
 /*首页仿工程官网盒子*/
 .index {
@@ -328,9 +341,9 @@ div::-webkit-scrollbar {
 }
 .guide {
   /*color: #666;*/
-  visibility: hidden;
+  /*visibility: hidden; 这一句删掉似乎视觉效果更好? */
   opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility 0s, opacity 0.3s linear;
   color: #05468c;
   letter-spacing: 0.1em;
   padding: 30px;
