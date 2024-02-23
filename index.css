@@ -363,7 +363,7 @@ div::-webkit-scrollbar {
   opacity: 1;
 }
 .atom {
-  padding: 20px;
+  padding: 0px;
 }
 .atom:hover {
   color: white;
@@ -393,6 +393,7 @@ div::-webkit-scrollbar {
   margin: 10px 0;
 }
 .atom a {
+  padding: 20px;
   height: 100%;
   text-decoration: none;
   color: black;
