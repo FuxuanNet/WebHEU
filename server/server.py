@@ -1,9 +1,9 @@
 import json
-import asyncio
 import uvicorn
+import requests
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from bs4 import BeautifulSoup
 
 app = FastAPI()
 
@@ -40,9 +40,23 @@ async def search_data(data: dict):
             keyword = keyword.replace(chr(code), " ")
     # 在数据库中执行搜索,然后返回result
     words = keyword.strip().split(" ")
-    
+
     result = {"result": "No related data found."}
     return result
+
+
+@app.get("/top-trend")
+async def get_trend():
+    url = "https://top.baidu.com/board?tab=realtime"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, 'html.parser')
+    title_elements = soup.find_all(class_="c-single-text-ellipsis")
+    index_elements = soup.find_all(class_="hot-index_1Bl1a")
+    top10_titles = list(title_elements)[:5]
+    top10_index = list(index_elements)[:5]
+    data = {"yAxis": [title.text for title in top10_titles],
+            "xAxis": [index.text[:-4] for index in top10_index]}
+    return data
 
 
 # /访问127.0.0.1:8000/lib来获取各种依赖文件或数据库

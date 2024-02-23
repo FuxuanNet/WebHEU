@@ -28,7 +28,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
             searchResultsElement.innerHTML = "<p>Result:" + searchTerm + "</p>";
 
         })
-        .catch((error) => {
+        .catch(error => {
           console.error("There was an error:", error);
         });
     }
