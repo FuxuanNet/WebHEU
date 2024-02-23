@@ -200,25 +200,26 @@ div::-webkit-scrollbar {
 
 /*调整图表样式,可以修改*/
 .show-chart {
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   flex: 1 1 auto;
   width: 1600px;
-  height: 700px;
+  height: 500px;
 }
 /* 调整图表大小 */
 #doughnut-chart,
 #pie-chart,
 #rose-chart {
-  height: 300px;
-  width: 500px;
+  height: 195px;
+  width: 520px;
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: 0px;
   margin-bottom: 20px;
 }
-#trend-chart{
+#trend-chart {
   height: 500px;
   width: 1500px;
   margin: 0 auto;
@@ -311,10 +312,9 @@ div::-webkit-scrollbar {
   padding: 0px 8px 8px;
 }
 /* 鼠标悬浮时放大栏目 */
-.item:hover{
+.item:hover {
   transform: scale(1.1);
 }
-
 
 /*首页仿工程官网盒子*/
 .index {
@@ -337,7 +337,6 @@ div::-webkit-scrollbar {
 }
 .flex1 {
   flex: 1;
-  margin: 10px;
 }
 .guide {
   /*color: #666;*/
@@ -362,4 +361,43 @@ div::-webkit-scrollbar {
 .index:hover .tri-flex {
   visibility: visible;
   opacity: 1;
+}
+.atom {
+  padding: 20px;
+}
+.atom:hover {
+  color: white;
+  background-color: #074f9c;
+}
+.line {
+  width: 80%;
+  height: 3px;
+  background-color: #074f9c;
+  margin: 10px auto;
+}
+.atom:hover .line {
+  background-color: white;
+  height: 1px;
+}
+.right-line {
+  width: 20%;
+  height: 3px;
+  background-color: #074f9c;
+  margin: 0 0 10px auto;
+}
+.atom:hover .right-line {
+  background-color: white;
+  height: 2px;
+}
+.atom p {
+  margin: 10px 0;
+}
+.atom a {
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+.atom a:hover {
+  color: white;
 }
