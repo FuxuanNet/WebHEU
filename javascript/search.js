@@ -1,5 +1,4 @@
 
-
 //添加一个监视器,当点击提交时将搜索词发送至后台
 document.getElementById('searchForm').addEventListener('submit', function(event) {
     event.preventDefault(); // 阻止表单默认提交行为
@@ -23,10 +22,8 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
         })
         .then(data => {
             // 示例：显示搜索结果
-            console.log(data);
             var searchResultsElement = document.getElementById('searchResults');
-            searchResultsElement.innerHTML = "<p>Result:" + searchTerm + "</p>";
-
+            searchResultsElement.innerHTML = "<p>Result:" + data["result"] + "</p>";
         })
         .catch(error => {
           console.error("There was an error:", error);
