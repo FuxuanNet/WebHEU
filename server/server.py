@@ -1,23 +1,21 @@
 import json
+import os
 import uvicorn
 import requests
 from fastapi import FastAPI, Request
-from fastapi.middleware.cors import CORSMiddleware
 from bs4 import BeautifulSoup
+from starlette.responses import FileResponse
 
+
+# 切换工作目录到父目录
+parent_directory = os.path.dirname(os.getcwd())
+os.chdir(parent_directory)
+
+# 构建webApplication
 app = FastAPI()
 
-# 解除CORS限制,从而接受网页发送的请求
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # 允许所有网址来源访问
-    allow_credentials=True,
-    allow_methods=["*"],  # 允许所有 HTTP 方法访问，也可以指定特定的方法，如 ["GET", "POST"]
-    allow_headers=["*"],  # 允许所有 HTTP 头部访问，也可以指定特定的头部，如 ["X-Custom-Header"]
-)
 
-
-# 请求中间件
+# 请求中间件,获取请求信息
 @app.middleware("http")
 async def ip_limit_middleware(request: Request, call_next):
     client_ip = request.client.host
@@ -26,7 +24,52 @@ async def ip_limit_middleware(request: Request, call_next):
     return response
 
 
-# 访问127.0.0.1:8000/search进行用户搜索
+# 爬取热搜榜数据
+@app.get("/top-trend")
+async def get_trend():
+    url = "https://top.baidu.com/board?tab=realtime"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, 'html.parser')
+    title_elements = soup.find_all(class_="c-single-text-ellipsis")
+    index_elements = soup.find_all(class_="hot-index_1Bl1a")
+    top10_titles = list(title_elements)[:5]
+    top10_index = list(index_elements)[:5]
+    data = {"yAxis": [title.text for title in top10_titles],
+            "xAxis": [index.text[:-4] for index in top10_index]}
+    return data
+
+
+# 处理文件获取请求
+@app.get("/")
+async def index_page():
+    return FileResponse("index.html")
+
+
+# 发送主目录下的文件
+@app.get("/{filename}")
+async def index_page(filename: str):
+    except_files = [".gitattributes", ".gitignore"]
+    if "/" not in filename and filename not in except_files:
+        # 返回对应文件
+        return FileResponse(filename)
+
+
+# 发送images/下的文件
+@app.get("/images/{filename}")
+async def index_page(filename: str):
+    if "/" not in filename:
+        # 返回对应文件
+        return FileResponse("images/"+filename)
+
+
+#发送javascript/下的文件
+@app.get("/javascript/{filename}")
+async def index_page(filename: str):
+    if "/" not in filename:
+        # 返回对应文件
+        return FileResponse("javascript/"+filename)
+
+
 # 处理/search下的搜索请求
 split_codes = [33, 34, 35, 39, 44, 45, 46, 58, 59, 61, 63, 12290, 65281, 65292, 30340, 26159, 20026]
 
@@ -43,38 +86,6 @@ async def search_data(data: dict):
 
     result = {"result": "No related data found."}
     return result
-
-
-@app.get("/top-trend")
-async def get_trend():
-    url = "https://top.baidu.com/board?tab=realtime"
-    r = requests.get(url)
-    soup = BeautifulSoup(r.text, 'html.parser')
-    title_elements = soup.find_all(class_="c-single-text-ellipsis")
-    index_elements = soup.find_all(class_="hot-index_1Bl1a")
-    top10_titles = list(title_elements)[:5]
-    top10_index = list(index_elements)[:5]
-    data = {"yAxis": [title.text for title in top10_titles],
-            "xAxis": [index.text[:-4] for index in top10_index]}
-    return data
-
-
-# /访问127.0.0.1:8000/lib来获取各种依赖文件或数据库
-# 处理/lib下的GET请求
-@app.get("/lib")
-async def read_lib():
-    with open("./database.json", "r") as f:
-        data = json.load(f)
-    return data
-
-
-# 处理/lib下的POST请求
-@app.post("/lib")
-async def save_lib(data: dict):
-    with open("./database.json", "w") as f:
-        json.dump(data, f)
-    data = {"message": "Data received and saved successfully"}
-    return data
 
 
 if __name__ == "__main__":
