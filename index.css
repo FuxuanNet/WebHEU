@@ -155,11 +155,8 @@ body {
   width: 560px;
   margin: 25px auto;
   height: 200px;
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.6),
-      rgba(255, 255, 255, 0.3)
-    ),
-    url("images/Box.svg"); /*更新盒子背景*/
+  background-image: url("images/Box.svg"); /*更新盒子背景*/
+  background-color: rgb(255, 255, 255);
   border-radius: 10px;
   box-shadow: 0 0 5px #eee;
 }
@@ -169,8 +166,8 @@ body {
 }
 .box:hover {
   background-image: linear-gradient(
-      rgba(255, 255, 255, 0.6),
-      rgba(255, 255, 255, 0.6)
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
     ),
     url("images/unBox.svg");
   transform: scale(1.05); /* 鼠标悬浮时放大到105% */
