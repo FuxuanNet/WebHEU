@@ -31,7 +31,7 @@ function getTrend(){
       axisLabel: {
          fontSize: 16, // 设置 x 轴标签字体大小为 14px
       formatter:function(value){  //设置标签显示格式,居中换行
-          return value.replace(/(.{9})/g, "$1\n");}
+          return value.replace(/(.{10})/g, "$1\n");}
     },
   },
   series: [
@@ -49,7 +49,7 @@ function getTrend(){
         valueAnimation: true,
           formatter: `{c}w`,
         fontSize: 20
-      }
+      },
     }
   ],
   animationDuration: 1000,
@@ -66,3 +66,6 @@ trendChart.setOption(option);
 }
 getTrend();
 setInterval(getTrend,300*1000);
+trendChart.on("click",function (param) {
+    window.open(`https://www.baidu.com/s?wd=${param.name}`, '_blank');
+})
