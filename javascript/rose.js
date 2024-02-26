@@ -5,15 +5,15 @@ let roseChart = echarts.init(rose_dom);
 
 let rose_option = {
     title: {
-        "text": "",
+        "text": "套餐分布",
         "subtext": "",
         "x": "center",
-        "y": "center"
+        "y": "top"
     },
     legend:{
         orient: 'vertical',
-        right: 10,
-        top: 5,
+        right: 15,
+        top: 0,
         textStyle: {
             fontSize: 16,
         },

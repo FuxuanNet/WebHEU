@@ -20,6 +20,9 @@ let tempData = {     // 提供模版数据
 
 function getTrend(){
 var option = {
+    title: {
+    text: '百度热搜榜',
+  },
   xAxis: {
       name:"热搜指数",
       nameTextStyle: {
