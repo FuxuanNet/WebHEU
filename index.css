@@ -124,8 +124,8 @@ body {
 .content {
   display: flex;
 
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  align-items: start;
   flex-wrap: wrap; /*这三行为多列多行布局，删去后改为单列*/
 
   overflow: auto;
@@ -144,6 +144,31 @@ body {
   padding: 10px;
   box-sizing: border-box;
 }
+.newbox {
+  width: 450px;
+  height: 300px;
+  margin: 10px;
+  background-color: rgb(255, 255, 255);
+}
+.newbox img {
+  width: 400px;
+  height: 200px;
+  margin: 10px 0 10px 20px;
+}
+.newbox a {
+  color: #074f9c;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+.newbox a:hover {
+  color: #05468c;
+}
+.newbox h2 {
+  text-align: center;
+}
+
 .box {
   /*visibility: hidden; 这一句删掉似乎视觉效果更好? */
   opacity: 0;
@@ -213,14 +238,14 @@ div::-webkit-scrollbar {
 #doughnut-chart,
 #pie-chart,
 #rose-chart,
-#rainfall-chart{
+#rainfall-chart {
   height: 200px;
   width: 520px;
   margin-top: 20px;
   margin-left: 0px;
   margin-bottom: 20px;
 }
-#rainfall-chart{
+#rainfall-chart {
   height: 400px;
   width: 600px;
 }
