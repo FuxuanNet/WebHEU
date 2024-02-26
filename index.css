@@ -212,12 +212,17 @@ div::-webkit-scrollbar {
 /* 调整图表大小 */
 #doughnut-chart,
 #pie-chart,
-#rose-chart {
-  height: 195px;
+#rose-chart,
+#rainfall-chart{
+  height: 200px;
   width: 520px;
   margin-top: 20px;
   margin-left: 0px;
   margin-bottom: 20px;
+}
+#rainfall-chart{
+  height: 400px;
+  width: 600px;
 }
 #trend-chart {
   height: 500px;

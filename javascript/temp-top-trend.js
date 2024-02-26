@@ -1,13 +1,25 @@
 // 基于准备好的dom，初始化echarts实例
 let trend_dom = document.getElementById("trend-chart");
 let trendChart = echarts.init(trend_dom);
+let tempData = {     // 提供模版数据
+    "yAxis": [
+        "  不负青山不负人 ",
+        "  大范围雨雪天气即将来袭 ",
+        "  林志玲林志颖是幼儿园同学 ",
+        "  一趟趟务工返岗专列向着春天进发 ",
+        "  泽连斯基首次公布乌军阵亡人数 "
+    ],
+    "xAxis": [
+        " 4953",
+        " 4995",
+        " 4801",
+        " 4778",
+        " 4615"
+    ]
+}
 
 function getTrend(){
-    fetch("http://127.0.0.1:8000/top-trend")
-        .then(response => {
-    return response.json();
-}).then(dataSet => {
-    var option = {
+var option = {
   xAxis: {
       name:"热搜指数",
       nameTextStyle: {
@@ -25,7 +37,7 @@ function getTrend(){
         fontSize: 16, // 设置字体大小为 14px
     },
     type: 'category',
-    data: dataSet["yAxis"],
+    data: tempData["yAxis"], //dataSet["yAxis"],
     inverse: true,
     animationDuration: 300,
     animationDurationUpdate: 300,
@@ -39,7 +51,7 @@ function getTrend(){
     {
       realtimeSort: true,
       type: 'bar',
-      data: dataSet["xAxis"],
+      data: tempData["xAxis"],    //dataSet["xAxis"],
         animationDelay: function (idx) {
             // 设置每个条形图的动画延迟时间为100ms
             return idx * 100;
@@ -59,11 +71,6 @@ function getTrend(){
   animationEasingUpdate: 'linear'
 };
 trendChart.setOption(option);
-})
-    .catch(error => {
-        console.error("There was an error:", error);
-});
-
 }
 getTrend();
 setInterval(getTrend,300*1000);    //设置定时器,5min更新一次
