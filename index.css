@@ -145,10 +145,15 @@ body {
   box-sizing: border-box;
 }
 .newbox {
+  opacity: 0;
+  transition: visibility 0s, opacity 0.8s linear;
   width: 450px;
   height: 300px;
   margin: 10px;
   background-color: rgb(255, 255, 255);
+}
+.content:hover .newbox {
+  opacity: 1;
 }
 .newbox img {
   width: 400px;
@@ -339,11 +344,16 @@ div::-webkit-scrollbar {
   box-sizing: border-box;
 }
 .masonry {
+  opacity: 0;
+  transition: visibility 0s, opacity 0.8s linear;
   width: 1440px; /*默认宽度*/
   margin: 20px auto; /* 剧中*/
   columns: 4; /*默认列数*/
   column-gap: 30px; /*列间距*/
   box-sizing: border-box;
+}
+.masonry:hover {
+  opacity: 1;
 }
 /* 瀑布流项 */
 .item {
