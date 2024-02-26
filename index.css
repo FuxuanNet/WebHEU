@@ -239,20 +239,45 @@ div::-webkit-scrollbar {
 #pie-chart,
 #rose-chart,
 #rainfall-chart {
-  height: 200px;
+  height: 300px;
   width: 520px;
   margin-top: 20px;
-  margin-left: 0px;
+  margin-right: 20px;
   margin-bottom: 20px;
 }
 #rainfall-chart {
   height: 400px;
-  width: 600px;
+  width: 500px;
 }
 #trend-chart {
-  height: 500px;
-  width: 1500px;
+  height: 450px;
+  width: 1400px;
   margin: 0 auto;
+}
+/* 设置图表样式 */
+.custom-table {
+  width: 600px;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+.custom-table th,
+.custom-table td {
+  border: 1px solid #dddddd;
+  padding: 18px;
+  text-align: left;
+}
+.custom-table th {
+  background-color: #4f7975;
+}
+.custom-table tbody tr:nth-child(odd) {
+  background-color: #e2ede9;
+}
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+.custom-table tbody tr td:hover {
+  background-color: #ddd;
 }
 
 /* 内容盒 */

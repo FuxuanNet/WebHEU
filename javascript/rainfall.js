@@ -7,19 +7,18 @@ let dataSet = {
 
 let rain_option = {
   title: {
-    text: 'Rainfall vs Evaporation',
+    text: '降雨量 vs 蒸发量',
   },
   tooltip: {
     trigger: 'axis'
   },
   legend: {
-    data: ['Rainfall', 'Evaporation']
+    data: ['降雨量', '蒸发量']
   },
   toolbox: {
     show: true,
     feature: {
-      dataView: { show: true, readOnly: false },
-      magicType: { show: true, type: ['line', 'bar'] },
+      magicType: { show: true, type: ['line'] },
       restore: { show: true },
       saveAsImage: { show: true }
     }
@@ -28,7 +27,6 @@ let rain_option = {
     {
       name:"月份",
       type: 'category',
-      // prettier-ignore
       data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     }
   ],
@@ -40,7 +38,7 @@ let rain_option = {
   ],
   series: [
     {
-      name: 'Rainfall',
+      name: '降雨量',
       type: 'bar',
       data: dataSet["xAxis"] ,
       markPoint: {
@@ -51,7 +49,7 @@ let rain_option = {
       },
     },
     {
-      name: 'Evaporation',
+      name: '蒸发量',
       type: 'bar',
       data: dataSet["yAxis"],
       markPoint: {
